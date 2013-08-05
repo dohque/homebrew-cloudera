@@ -241,7 +241,9 @@ private
 
   # Can we SSH to ourselves?
   def check_ssh_localhost
-    unless 'success' == %x{ssh localhost echo success}.chomp
+    # BatchMode=yes prevents password authentication
+    # Interestingly PasswordAuthentication=no does not seem to disable it.
+    unless 'success' == %x{ssh -o BatchMode=yes localhost echo success}.chomp
       abort "You need to allow key-based SSH access to localhost for your own user.\n" +
             "See http://borrelli.org/2012/05/02/hadoop-osx-sshkey_setup/"
     end
