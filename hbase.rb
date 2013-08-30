@@ -119,6 +119,19 @@ class Hbase < Formula
         hadoop-yarn-server-tests-2.0.0-cdh4.3.0-tests.jar
         hadoop-yarn-server-web-proxy-2.0.0-cdh4.3.0.jar
 
+    HBase has problems with any but the most basic networking configurations.  Your
+    fully-qualified hostname must resolve to a locally-bound IP.  An easy way to
+    guarantee this is to simply force your FQDN to a good, known value on startup. You
+    can do this by dropping a command similar to this one in /etc/rc.local (creating it
+    if necessary):
+
+      $ cat /etc/rc.local
+      #! /bin/bash
+
+      # FOUL DHCP, THOU SHALT NOT CHANGE MY HOSTNAME!
+      # See http://superuser.com/a/50104/96477
+      scutil --set HostName holmes.local
+
     To have launchd start #{name} at login:
         mkdir -p ~/Library/LaunchAgents
         ln -sfv #{HOMEBREW_PREFIX}/opt/#{name}/*.plist ~/Library/LaunchAgents
