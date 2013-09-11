@@ -58,9 +58,9 @@ class Hbase < Formula
       jar_path = Dir["#{prefix}/../../hadoop-snappy/*/hadoop-snappy-*.jar"].last
       (hbase_home/'lib').install_symlink jar_path
 
-      # The underscore forces it to appear early in hbase' classpath
+      # The zero forces it to appear early in hbase' classpath
       jar_name = File.basename(jar_path)
-      FileUtils.mv "#{hbase_home}/lib/#{jar_name}", "#{hbase_home}/lib/_hadoop-snappy.jar"
+      FileUtils.mv "#{hbase_home}/lib/#{jar_name}", "#{hbase_home}/lib/0-#{jar_name}"
 
       native_lib_dir.install_symlink Dir["#{HOMEBREW_PREFIX}/lib/libsnappy.*"]
       native_lib_dir.install_symlink Dir["#{HOMEBREW_PREFIX}/lib/libhadoopsnappy.*"]
