@@ -14,7 +14,7 @@ class Hadoop < Formula
   version '2.0.0-cdh4.5.0'
   homepage 'http://www.cloudera.com/content/cloudera/en/products/cdh.html'
   url 'http://archive.cloudera.com/cdh4/cdh/4/hadoop-2.0.0-cdh4.5.0.tar.gz'
-  sha1 '7f537c572d65baf485e1571a971b654c9348fa8d'
+  sha1 '17e73e63d666daf9cbe803e4f92d9494dd11217d'
 
   module MR1; end
   module MR2; end
