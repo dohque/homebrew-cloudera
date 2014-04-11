@@ -303,8 +303,8 @@ index d502099..87d5009 100755
      echo starting $command, logging to $_HADOOP_DAEMON_OUT
      cd "$HADOOP_HOME"
 
--    nice -n $HADOOP_NICENESS $bin/hadoop --config $HADOOP_CONF_DIR $command "$@" < /dev/null
-+    nice -n $HADOOP_NICENESS "$HADOOP_HOME"/bin-mapreduce1/hadoop --config $HADOOP_CONF_DIR $command "$@" < /dev/null
+-     nice -n $HADOOP_NICENESS $bin/hadoop --config $HADOOP_CONF_DIR $command "$@" < /dev/null
++     nice -n $HADOOP_NICENESS "$HADOOP_HOME"/bin-mapreduce1/hadoop --config $HADOOP_CONF_DIR $command "$@" < /dev/null
      ;;
 
    (stop)
@@ -392,7 +392,7 @@ index ce7ccc8..a12cca5 100644
 
  # The java implementation to use.  Required.
 -# export JAVA_HOME=/usr/lib/j2sdk1.6-sun
-+export JAVA_HOME="$(/usr/libexec/java_home)"
++export JAVA_HOME="$(/usr/libexec/java_home -v 1.6)"
 
  # Extra Java CLASSPATH elements.  Optional.
  # export HADOOP_CLASSPATH="<extra_entries>:$HADOOP_CLASSPATH"
