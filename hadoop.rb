@@ -303,7 +303,7 @@ index d502099..87d5009 100755
      echo starting $command, logging to $_HADOOP_DAEMON_OUT
      cd "$HADOOP_HOME"
 
--    nice -n $HADOOP_NICENESS "$HADOOP_HOME"/bin/hadoop --config $HADOOP_CONF_DIR $command "$@" < /dev/null
+-    nice -n $HADOOP_NICENESS $bin/hadoop --config $HADOOP_CONF_DIR $command "$@" < /dev/null
 +    nice -n $HADOOP_NICENESS "$HADOOP_HOME"/bin-mapreduce1/hadoop --config $HADOOP_CONF_DIR $command "$@" < /dev/null
      ;;
 
